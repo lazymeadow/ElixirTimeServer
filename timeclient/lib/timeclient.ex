@@ -12,7 +12,6 @@ defmodule TimeClient do
     {opts, extra, errors} = args |>
         OptionParser.parse(switches: [verbose: :boolean], aliases: [verbose: :verbose, v: :verbose])
     unless opts[:verbose], do: Logger.configure([level: :error])
-    IO.puts extra
     case errors do
       [] -> 
         case extra do

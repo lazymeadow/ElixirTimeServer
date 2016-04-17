@@ -22,11 +22,11 @@ clean: clean-timeserver clean-timeclient
 
 .PHONY: clean-timeserver
 clean-timeserver:
-	cd timeserver ; mix clean
+	cd timeserver ; mix clean ; rm -rf _build
 	rm TimeServer
 
 .PHONY: clean-timeclient
 clean-timeclient:
-	cd timeclient ; mix clean
+	cd timeclient ; mix clean ; rm -rf _build
 	rm TimeClient
 

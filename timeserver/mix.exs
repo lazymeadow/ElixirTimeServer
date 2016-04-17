@@ -5,7 +5,6 @@ defmodule Timeserver.Mixfile do
     [app: :timeserver,
      version: "0.0.1",
      escript: escript,
-     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]

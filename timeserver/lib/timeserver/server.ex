@@ -19,7 +19,8 @@ defmodule TimeServer.Server do
     {:ok, client} = :gen_tcp.accept(socket)
     task = Task.Supervisor.async(TimeServer.TaskSupervisor, fn -> serve(client) end)
     Task.await(task)
-    Stream.timer(5000) |> Enum.to_list
+	# on onyx, the milliseconds are doubling. So five seconds ends up being 2500 milliseconds??
+    Stream.timer(2500) |> Enum.to_list
     loop_acceptor(socket)
   end
 
