@@ -23,22 +23,10 @@ defmodule TimeClient.Client do
     case :gen_tcp.recv(server, 0, 5000) do
       {:ok, data} ->
         IO.puts String.strip(data)
-        read_line_from_server(server)
       {:error, :timeout} -> nil
       {:error, reason} -> Logger.info "Error receiving data. Reason: #{reason}"
     end
   end
 
-
-  def read_line_from_server(socket) do
-    case :gen_tcp.recv(socket, 0, 200) do
-      {:ok, data} ->
-        IO.puts String.strip(data)
-        read_line_from_server(socket)
-      {:error, :timeout} -> nil
-      {:error, :closed} -> nil
-      {:error, reason} -> Logger.info "Error receiving data. Reason: #{reason}"
-    end
-  end
 end
 
